@@ -26,13 +26,17 @@
     [self.view addSubview:self.webView];
     [self loadIndexFile];
     
-    [self.bridge registerEvent:@"imgLongTap" handler:^(id data, JSBResponseCallback responseCallback) {
+    [self.bridge registerEvent:JSBridge_JSEvent_ImageLongTap handler:^(id data, JSBResponseCallback responseCallback) {
         NSString *img = data[@"data"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Long Tap" message:img delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }];
     
-    
+    [self.bridge registerEvent:JSBridge_JSEvent_ImageSingleTap handler:^(id data, JSBResponseCallback responseCallback) {
+        NSString *img = data[@"data"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Single Tap" message:img delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
     
     // Do any additional setup after loading the view, typically from a nib.
 }

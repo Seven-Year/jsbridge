@@ -71,6 +71,7 @@
 
 //regist
 #define JSBridge_JSEvent_ImageLongTap @"imgLongTap"
+#define JSBridge_JSEvent_ImageSingleTap @"imgSingleTap"
 
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"
