@@ -324,7 +324,7 @@
     
     if(numberOfUrlRequests == 0) {
         if(![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof %@ == 'object'",JS_BRIDGE]] isEqualToString:@"true"]) {
-            NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle mainBundle];
+            NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle bundleForClass:[self class]];
             NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
             NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
             [webView stringByEvaluatingJavaScriptFromString:js];
