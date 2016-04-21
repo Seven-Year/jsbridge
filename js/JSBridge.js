@@ -2271,5 +2271,8 @@ var vsprintf = function(fmt, argv) {
       _WXJS('img')['wx-longTap'](function(event) {
         send('imgLongTap', event.target.src);
       });
+      _WXJS('img')['wx-singleTap'](function(event) {
+        send('imgSingleTap', event.target.src);
+      });
     }, 3000);
 })();
