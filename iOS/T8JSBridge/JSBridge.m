@@ -323,19 +323,21 @@
     numberOfUrlRequests--;
     
     //为了保证js加载迅速，每次一个请求都执行js注入，且可以执行多次
-    NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle bundleForClass:[self class]];
-    NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
-    NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [webView stringByEvaluatingJavaScriptFromString:js];
+//    NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle bundleForClass:[self class]];
+//    NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
+//    NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    [webView stringByEvaluatingJavaScriptFromString:js];
     
-//    if(numberOfUrlRequests == 0) {
-//        if(![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof %@ == 'object'",JS_BRIDGE]] isEqualToString:@"true"]) {
-//            NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle bundleForClass:[self class]];
-//            NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
-//            NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//            [webView stringByEvaluatingJavaScriptFromString:js];
-//        }
-//    }
+    if(numberOfUrlRequests == 0) {
+        if(![[webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"typeof %@ == 'object'",JS_BRIDGE]] isEqualToString:@"true"]) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                NSBundle *bundle = resourceBundle ? resourceBundle : [NSBundle bundleForClass:[self class]];
+                NSString *filePath = [bundle pathForResource:JS_BRIDGE_FILE_NAME ofType:@"js"];
+                NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+                [webView stringByEvaluatingJavaScriptFromString:js];
+            });
+        }
+    }
     
     if (startupMessageQueue) {
         for (id queuedMessage in startupMessageQueue) {
