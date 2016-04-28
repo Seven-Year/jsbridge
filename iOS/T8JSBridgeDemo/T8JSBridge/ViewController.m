@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JSBridge.h"
+#import "JavaScriptCore/JavaScriptCore.h"
 
 @interface ViewController ()<UIWebViewDelegate>
 
@@ -26,6 +27,11 @@
     [self.view addSubview:self.webView];
     [self loadIndexFile];
     
+    JSContext *ctx = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    ctx[@"console"][@"log"] = ^(JSValue * msg) {
+        NSLog(@"JavaScript %@ log message: %@", [JSContext currentContext], msg);
+    };
+    
     [self.bridge registerEvent:JSBridge_JSEvent_ImageLongTap handler:^(id data, JSBResponseCallback responseCallback) {
         NSString *img = data[@"data"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Long Tap" message:img delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -38,12 +44,26 @@
         [alert show];
     }];
     
+    [self.bridge registerEvent:@"js_log" handler:^(id data, JSBResponseCallback responseCallback) {
+        
+    }];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"go" style:UIBarButtonItemStylePlain target:self action:@selector(gogogo)];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)gogogo
+{
+    [self.bridge send:@"getSharePreviewImage" data:@"111" responseCallback:^(id responseData) {
+        NSString *img = responseData[@"data"];
+        NSLog(@"JSBridge_NativeCall_GetPreviewImage:%@", img);
+    }];
 }
 
 #pragma mark - private
@@ -55,10 +75,7 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.bridge send:JSBridge_NativeCall_GetPreviewImage data:nil responseCallback:^(id responseData) {
-        NSString *img = responseData[@"data"];
-        NSLog(@"JSBridge_NativeCall_GetPreviewImage:%@", img);
-    }];
+    
 }
 
 #pragma mark - getter

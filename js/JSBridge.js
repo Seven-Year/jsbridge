@@ -1881,7 +1881,7 @@ var vsprintf = function(fmt, argv) {
         msg = fmt;
       }
       console.log(msg);
-//      callAPI('JSBridgeLog.d');
+      // callAPI('JSBridgeLog.d');
     }
 
 	var base64encodechars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -2146,6 +2146,7 @@ var vsprintf = function(fmt, argv) {
     function _setDefaultEventHandlers() {
 
       var getSharePreviewImage = function(message, cb) {
+        console.log('getSharePreviewImage start ...')
         var isCalled = false;
         var callCB = function(_img){
           if (isCalled) {return;};
