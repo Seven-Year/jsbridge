@@ -1881,7 +1881,7 @@ var vsprintf = function(fmt, argv) {
         msg = fmt;
       }
       console.log(msg);
-//      callAPI('JSBridgeLog.d');
+      // callAPI('JSBridgeLog.d');
     }
 
 	var base64encodechars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -2146,12 +2146,45 @@ var vsprintf = function(fmt, argv) {
     function _setDefaultEventHandlers() {
 
       var getSharePreviewImage = function(message, cb) {
+        console.log('getSharePreviewImage start ...')
         var isCalled = false;
         var callCB = function(_img){
           if (isCalled) {return;};
           isCalled = true;
 
-          callEventCallback(cb, _img.src, message);
+          var desc = '';
+          if (document.getElementsByName('description').length > 0) {
+            desc = document.getElementsByName('description')[0].content;
+          }
+          console.log('get desc ... ' + desc);  
+
+          var title = '';
+          var bodyTags = document.getElementsByTagName('body');
+          if (bodyTags && bodyTags.length > 0 && bodyTags[0].getAttribute('data-title')) {
+            title = bodyTags[0].getAttribute('data-title');
+          } else if (document.getElementsByTagName('title').length > 0) {
+            title = document.getElementsByTagName('title')[0].textContent;
+          } else if (document.getElementsByClassName('title').length > 0) {
+            title = document.getElementsByClassName('title')[0].textContent;
+          }
+          console.log('get title ... ' + title);
+
+          console.log('result : ' + JSON.stringify({title: titile, desc: desc, img: _img.src}));
+
+          callEventCallback(cb, JSON.stringify({title: titile, desc: desc, img: _img.src}), message);
+        }
+
+        // 针对新生大学页面优化
+        var bodyTags = document.getElementsByTagName('body');
+        if (bodyTags && bodyTags.length > 0 && bodyTags[0].getAttribute('data-src')) {
+            var vImg = {};
+            vImg.src = bodyTags[0].getAttribute('data-src');
+            if (!vImg.src.indexOf('http') < 0) {
+                vImg.src = 'http://' + vImg.src;
+            }
+
+            console.log('get spec image for xinshengdaxue ...')
+            return callCB(vImg);
         }
 
         var _allImgs = _WXJS('img');

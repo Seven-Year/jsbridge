@@ -17,7 +17,7 @@
 		6D3046B41CC257DD00B4A48D /* T8JSBridgeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3046B31CC257DD00B4A48D /* T8JSBridgeUITests.m */; };
 		6D9949F81CC4D3910078D32F /* JSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9949F41CC4D3910078D32F /* JSBridge.m */; };
 		6D9949F91CC4D3910078D32F /* JSBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9949F61CC4D3910078D32F /* JSBridgeBase.m */; };
-		6D994A181CC8D7B60078D32F /* JSBridge.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 6D994A171CC8D7B60078D32F /* JSBridge.min.js */; };
+		6DB31D341CD1D08100517F94 /* JSBridge.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 6DB31D331CD1D08100517F94 /* JSBridge.min.js */; };
 		CC3DF02B1D708F46AB9D7B9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F69BD6CDCBC7A84AD6B1C4A5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,7 @@
 		6D9949F41CC4D3910078D32F /* JSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBridge.m; sourceTree = "<group>"; };
 		6D9949F51CC4D3910078D32F /* JSBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBridgeBase.h; sourceTree = "<group>"; };
 		6D9949F61CC4D3910078D32F /* JSBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBridgeBase.m; sourceTree = "<group>"; };
-		6D994A171CC8D7B60078D32F /* JSBridge.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = JSBridge.min.js; path = ../../../js/JSBridge.min.js; sourceTree = "<group>"; };
+		6DB31D331CD1D08100517F94 /* JSBridge.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = JSBridge.min.js; path = ../../../js/JSBridge.min.js; sourceTree = "<group>"; };
 		CB4CA8274961927B798FDBCD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E124485AC1F925E94002FC91 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F69BD6CDCBC7A84AD6B1C4A5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +182,7 @@
 		6D994A161CC8D7940078D32F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6D994A171CC8D7B60078D32F /* JSBridge.min.js */,
+				6DB31D331CD1D08100517F94 /* JSBridge.min.js */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			files = (
 				6D30469E1CC257DD00B4A48D /* LaunchScreen.storyboard in Resources */,
 				6D30469B1CC257DD00B4A48D /* Assets.xcassets in Resources */,
-				6D994A181CC8D7B60078D32F /* JSBridge.min.js in Resources */,
+				6DB31D341CD1D08100517F94 /* JSBridge.min.js in Resources */,
 				6D3046991CC257DD00B4A48D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
