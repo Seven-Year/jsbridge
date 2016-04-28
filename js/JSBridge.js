@@ -1881,7 +1881,7 @@ var vsprintf = function(fmt, argv) {
         msg = fmt;
       }
       console.log(msg);
-//      callAPI('JSBridgeLog.d');
+      // callAPI('JSBridgeLog.d');
     }
 
 	var base64encodechars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
@@ -2166,7 +2166,7 @@ var vsprintf = function(fmt, argv) {
             title = document.getElementsByClassName('title')[0].textContent;
           }
 
-          callEventCallback(cb, JSON.stringify({title: titile, desc: desc, img: _img.src}), message);
+          callEventCallback(cb, JSON.stringify({'title': title, 'desc': desc, 'img': _img.src}), message);
         }
 
         // 针对新生大学页面优化
@@ -2174,9 +2174,10 @@ var vsprintf = function(fmt, argv) {
         if (bodyTags && bodyTags.length > 0 && bodyTags[0].getAttribute('data-src')) {
             var vImg = {};
             vImg.src = bodyTags[0].getAttribute('data-src');
-            if (!vImg.src.startsWith('http')) {
+            if (!vImg.src.indexOf('http') < 0) {
                 vImg.src = 'http://' + vImg.src;
             }
+
             return callCB(vImg);
         }
 
