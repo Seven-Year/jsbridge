@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  s.resource  = "js/*.min.js"
+  s.resource  = "js/*.js"
   #s.resource_bundles = {'Resources' => ["iOS/T8JSBridge/*.js"]}
   # s.resources = "Resources/*.png"
 

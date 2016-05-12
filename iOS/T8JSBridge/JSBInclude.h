@@ -47,7 +47,7 @@
 #define JSBRIDGE_URL_EVENT              @"__JSB_URL_EVENT__"
 #define JSBRIDGE_URL_API                @"__JSB_URL_API__"
 //!!! WARNING - Should be in SYNC with Native Code defines - End
-#define JS_BRIDGE_FILE_NAME             @"JSBridge.min"
+#define JS_BRIDGE_FILE_NAME             @"JSBridge"
 #define JS_BRIDGE                       @"JSBridge"
 #define JS_BRIDGE_GET_API_DATA          @"_getAPIData"
 #define JS_BRIDGE_GET_JS_EVENT_QUEUE    @"_fetchJSEventQueue"

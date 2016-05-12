@@ -1344,6 +1344,8 @@ window._WXJS = _WXJS
       if (delta > 0 && delta <= 250) touch.isDoubleTap = true
       touch.last = now
       longTapTimeout = setTimeout(longTap, longTapDelay)
+
+            
     }).bind('touchmove', function(e){
       cancelLongTap()
       touch.x2 = e.touches[0].pageX
@@ -1366,13 +1368,16 @@ window._WXJS = _WXJS
       // normal tap
       } else if ('last' in touch) {
         touch.el.trigger('wx-tap')
-
+        var delta = Date.now() - touch.last;
+        if (delta > 0 && delta <= 250) {
         touchTimeout = setTimeout(function(){
           touchTimeout = null
           touch.el.trigger('wx-singleTap')
           touch = {}
         }, 250)
+        }
       }
+
     }).bind('touchcancel', function(){
       if (touchTimeout) clearTimeout(touchTimeout)
       if (longTapTimeout) clearTimeout(longTapTimeout)
@@ -2151,23 +2156,27 @@ var vsprintf = function(fmt, argv) {
         var callCB = function(_img){
           if (isCalled) {return;};
           isCalled = true;
-
           var desc = '';
-          if (document.getElementsByName('description').length > 0) {
-            desc = document.getElementsByName('description')[0].content;
+          var descTags = document.getElementsByName('description');
+          if (descTags && descTags.length > 0 && descTags[0]) {
+            desc = descTags[0].content;
           }
+
 
           var title = '';
           var bodyTags = document.getElementsByTagName('body');
-          if (bodyTags && bodyTags.length > 0 && bodyTags[0].getAttribute('data-title')) {
+          var titleTags = document.getElementsByTagName('title');
+          var titleClasses = document.getElementsByClassName('title');
+          if (bodyTags && bodyTags.length > 0 && bodyTags[0] && bodyTags[0].getAttribute('data-title')) {
             title = bodyTags[0].getAttribute('data-title');
-          } else if (document.getElementsByTagName('title').length > 0) {
-            title = document.getElementsByTagName('title')[0].textContent;
-          } else if (document.getElementsByClassName('title').length > 0) {
-            title = document.getElementsByClassName('title')[0].textContent;
+          } else if (titleTags && titleTags.length > 0 && titleTags[0]) {
+            title = titleTags[0].textContent;
+          } else if (titleClasses && titleClasses.length > 0 && titleClasses[0]) {
+            title = titleClasses[0].textContent;
           }
 
-          callEventCallback(cb, JSON.stringify({'title': title, 'desc': desc, 'img': _img.src}), message);
+          
+         callEventCallback(cb, JSON.stringify({'title': title, 'desc': desc, 'img': _img ? _img.src : ""}), message);
         }
 
         // 针对新生大学页面优化
