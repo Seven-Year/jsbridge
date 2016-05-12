@@ -68,7 +68,10 @@
     uniqueId            = 0;
     numberOfUrlRequests = 0;
     
-    if(jsWebView) jsWebView.delegate = nil;
+    if(jsWebView) {
+        [jsWebView stopLoading];
+        jsWebView.delegate = nil;
+    }
     RELEASE_MEM(jsWebView);
     RELEASE_MEM(startupMessageQueue);
     RELEASE_MEM(responseCallbacks);
@@ -359,6 +362,10 @@
     if(webView != jsWebView) return YES;
     
     NSURL *url = [request URL];
+    if (!url) {
+        return YES;
+    }
+    
     if ([[url scheme] isEqualToString:JSBRIDGE_URL_SCHEME]) {
         if ([[url host] isEqualToString:JSBRIDGE_URL_MESSAGE]) {
             NSString *relativePath = [url relativePath];
