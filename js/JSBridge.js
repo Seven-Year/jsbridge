@@ -27,6 +27,8 @@
 //
 //
 
+var send;
+
 ;(function() {
     if(window.JSBridge)return;
 
@@ -2052,7 +2054,7 @@ var vsprintf = function(fmt, argv) {
         }
     }
 
-    function send(eventName, data, responseCallback) {
+    send = function (eventName, data, responseCallback) {
         var dataToSend = {};
         if(eventName) dataToSend["eventName"] = eventName;
         dataToSend["data"] = {status : "true"};
@@ -2312,3 +2314,13 @@ var vsprintf = function(fmt, argv) {
       send('imgSingleTap', event.target.src);
     });
 })();
+                                                                                                                                                                                                             
+window.tinfiniteBridge = {
+  getPostUserId: function (userId) {
+    send('getPostUserId', userId)
+  },
+  getLikePostId: function (postId) {
+    send('getLikePostId', postId)
+  },
+}
+                                                                                                                                                                                                             
