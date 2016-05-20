@@ -72,6 +72,9 @@
 //regist
 #define JSBridge_JSEvent_ImageLongTap @"imgLongTap"
 #define JSBridge_JSEvent_ImageSingleTap @"imgSingleTap"
+//tinfinite regist
+#define JSBridge_JSEvent_ArticleUser @"getPostUserId"
+#define JSBridge_JSEvent_ArticleLike @"getLikePostId"
 
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"

@@ -2319,8 +2319,8 @@ window.tinfiniteBridge = {
   getPostUserId: function (userId) {
     send('getPostUserId', userId)
   },
-  getLikePostId: function (postId) {
-    send('getLikePostId', postId)
+  getLikePostId: function (postId, action) {
+    send('getLikePostId', {'id':postId, 'action':action})
   },
 }
                                                                                                                                                                                                              
