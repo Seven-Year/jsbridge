@@ -1370,14 +1370,13 @@ window._WXJS = _WXJS
       // normal tap
       } else if ('last' in touch) {
         touch.el.trigger('wx-tap')
-        var delta = Date.now() - touch.last;
-        if (delta > 0 && delta <= 250) {
         touchTimeout = setTimeout(function(){
           touchTimeout = null
-          touch.el.trigger('wx-singleTap')
+          if (!(touch.y2 && Math.abs(touch.y1 - touch.y2) > 3)) {
+            touch.el.trigger('wx-singleTap')
+          };
           touch = {}
         }, 250)
-        }
       }
 
     }).bind('touchcancel', function(){
