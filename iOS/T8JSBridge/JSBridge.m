@@ -32,17 +32,17 @@
 #import "JSBridgeBase.h"
 
 @interface JSBridge()
-@property(nonatomic,assign) UIWebView               *jsWebView;
-@property(nonatomic,assign) id<UIWebViewDelegate>   jsWebViewDelegate;
-@property(nonatomic,assign) NSBundle                *resourceBundle;
-@property(nonatomic,assign) JSBHandler              bridgeHandler;
+@property(nonatomic,weak) UIWebView               *jsWebView;
+@property(nonatomic,weak) id<UIWebViewDelegate>   jsWebViewDelegate;
+@property(nonatomic,weak) NSBundle                *resourceBundle;
+@property(nonatomic,weak) JSBHandler              bridgeHandler;
 @property(nonatomic,assign) long                    uniqueId;
 @property(nonatomic,assign) NSUInteger              numberOfUrlRequests;
 
-@property(nonatomic,retain) NSMutableArray          *startupMessageQueue;
-@property(nonatomic,retain) NSMutableDictionary     *responseCallbacks;
-@property(nonatomic,retain) NSMutableDictionary     *messageHandlers;
-@property(nonatomic,retain) NSMutableDictionary     *nativeModules;
+@property(nonatomic,strong) NSMutableArray          *startupMessageQueue;
+@property(nonatomic,strong) NSMutableDictionary     *responseCallbacks;
+@property(nonatomic,strong) NSMutableDictionary     *messageHandlers;
+@property(nonatomic,strong) NSMutableDictionary     *nativeModules;
 @end
 
 @implementation JSBridge
