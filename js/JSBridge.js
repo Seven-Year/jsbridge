@@ -2310,6 +2310,10 @@ var vsprintf = function(fmt, argv) {
       send('imgLongTap', event.target.src);
     });
     _WXJS('img')['wx-singleTap'](function(event) {
+      // 过滤掉带有data_ignore属性的图片
+      if (event.target.getAttribute('data-ignore')=='1') {
+        return;
+      };
       send('imgSingleTap', event.target.src);
     });
 })();
