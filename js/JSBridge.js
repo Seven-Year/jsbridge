@@ -2325,5 +2325,8 @@ window.tinfiniteBridge = {
   getLikePostId: function (postId, action) {
     send('getLikePostId', {'id':postId, 'action':action})
   },
+  openCamera: function (current_num, maxNum) {
+    send('openCamera', {'current_num':current_num, 'maxNum':maxNum})
+  },
 }
                                                                                                                                                                                                              
