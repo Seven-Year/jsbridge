@@ -76,8 +76,24 @@
 #define JSBridge_JSEvent_ArticleUser @"getPostUserId"
 #define JSBridge_JSEvent_ArticleLike @"getLikePostId"
 
+#define JSBridge_JSEvent_OpenCamera @"openCamera"
+
+#define JSBridge_JSEvent_JumpToNativePage @"jumptoNativePage"
+#define JSBridge_JSEvent_PayforByNative @"payforbyNative"
+#define JSBridge_JSEvent_WebViewShowRightBarButton @"showButton"
+#define JSBridge_JSEvent_UpdateTitle @"updateTitle"
+#define JSBridge_JSEvent_UpdateWebInfo @"updateWebInfo"
+#define JSBridge_JSEvent_LoadCompleted @"loadCompleted"
+#define JSBridge_JSEvent_ShareToWX @"shareToWX"
+
+
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"
+#define JSBridge_NativeCall_SendMsgListener @"sendMsgListener"
+#define JSBridge_NativeCall_ReplyPostListener @"replyPostListener"
+#define JSBridge_NativeCall_ReplyCommentListener @"replyCommentListener"
+#define JSBridge_NativeCall_P10000Listener @"payforStatusListener"
+
 
 typedef void (^JSBResponseCallback)(id responseData);
 typedef void (^JSBHandler)(id data, JSBResponseCallback responseCallback);

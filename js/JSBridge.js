@@ -1347,7 +1347,7 @@ window._WXJS = _WXJS
       touch.last = now
       longTapTimeout = setTimeout(longTap, longTapDelay)
 
-            
+
     }).bind('touchmove', function(e){
       cancelLongTap()
       touch.x2 = e.touches[0].pageX
@@ -1933,9 +1933,9 @@ var vsprintf = function(fmt, argv) {
     var JSBRIDGE_URL_MESSAGE = '__JSB_URL_MESSAGE__';
     var JSBRIDGE_URL_EVENT   = '__JSB_URL_EVENT__';
     var JSBRIDGE_URL_API     = '__JSB_URL_API__';
-  
+
     //!!! WARNING - Should be in SYNC with Native Code defines - End
-  
+
     var ua                  = navigator.userAgent;
     var isIOSDevice         = /iP(hone|od|ad)/g.test(ua);
     var isAndroidDevice     = /Android/g.test(ua);
@@ -2176,7 +2176,7 @@ var vsprintf = function(fmt, argv) {
             title = titleClasses[0].textContent;
           }
 
-          
+
          callEventCallback(cb, JSON.stringify({'title': title, 'desc': desc, 'img': _img ? _img.src : ""}), message);
         }
 
@@ -2269,13 +2269,13 @@ var vsprintf = function(fmt, argv) {
         init    : init.bind(this),
         send    : send.bind(this),
         callAPI : callAPI.bind(this),
-  
+
         registerEvent   : registerEvent.bind(this),
         deRegisterEvent : deRegisterEvent.bind(this),
 
         callAPICallback     : callAPICallback.bind(this),
         callEventCallback   : callEventCallback.bind(this),
-  
+
         _fetchJSEventQueue      : _fetchJSEventQueue.bind(this),
         _handleMessageFromNative: _handleMessageFromNative.bind(this),
         _getAPIData             : _getAPIData.bind(this),
@@ -2317,7 +2317,7 @@ var vsprintf = function(fmt, argv) {
       send('imgSingleTap', event.target.src);
     });
 })();
-                                                                                                                                                                                                             
+
 window.tinfiniteBridge = {
   getPostUserId: function (userId) {
     send('getPostUserId', userId)
@@ -2328,5 +2328,28 @@ window.tinfiniteBridge = {
   openCamera: function (current_num, maxNum) {
     send('openCamera', {'current_num':current_num, 'maxNum':maxNum})
   },
+  jumptoNativePage: function (params) {
+    send('jumptoNativePage', params)
+  },
+  showButton: function (params) {
+    send('showButton', params)
+  },
+  payforbyNative: function (params) {
+    send('payforbyNative', params)
+  },
+  updateTitle: function (params) {
+    send('updateTitle', params)
+  },
+  updateWebInfo: function (params) {
+    send('updateWebInfo', params)
+  },
+  imgSingleTap: function (params) {
+    send('imgSingleTap', params)
+  },
+  imgLongTap: function (params) {
+    send('imgLongTap', params)
+  },
+  shareToWX: function (params) {
+    send('shareToWX', params)
+  },
 }
-                                                                                                                                                                                                             
