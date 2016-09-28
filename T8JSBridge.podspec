@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "T8JSBridge"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "A short description of T8JSBridge."
 
   # This description is used to generate tags and improve search results.
