@@ -93,6 +93,7 @@
 #define JSBridge_NativeCall_ReplyPostListener @"replyPostListener"
 #define JSBridge_NativeCall_ReplyCommentListener @"replyCommentListener"
 #define JSBridge_NativeCall_P10000Listener @"payforStatusListener"
+#define JSBridge_NativeCall_EnterChannelCallBack @"enterChannelCallBack"
 
 
 typedef void (^JSBResponseCallback)(id responseData);
