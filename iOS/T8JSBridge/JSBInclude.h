@@ -85,6 +85,8 @@
 #define JSBridge_JSEvent_UpdateWebInfo @"updateWebInfo"
 #define JSBridge_JSEvent_LoadCompleted @"loadCompleted"
 #define JSBridge_JSEvent_ShareToWX @"shareToWX"
+#define JSBridge_JSEvent_CheckReceipt @"orderReceiptCheck"
+#define JSBridge_JSEvent_undofobyNative @"undoforbyNative"
 
 
 //send
@@ -94,6 +96,7 @@
 #define JSBridge_NativeCall_ReplyCommentListener @"replyCommentListener"
 #define JSBridge_NativeCall_P10000Listener @"payforStatusListener"
 #define JSBridge_NativeCall_EnterChannelCallBack @"enterChannelCallBack"
+#define JSBridge_JSEvent_undoforStatusListener @"undoforStatusListener"
 
 
 typedef void (^JSBResponseCallback)(id responseData);

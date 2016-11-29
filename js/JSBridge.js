@@ -2356,4 +2356,7 @@ window.tinfiniteBridge = {
   shareToWX: function (params) {
     send('shareToWX', params)
   },
+  undoforbyNative: function (params) {
+    send('undoforbyNative', params)
+  },
 }
