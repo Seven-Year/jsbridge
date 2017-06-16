@@ -88,6 +88,9 @@
 #define JSBridge_JSEvent_CheckReceipt @"orderReceiptCheck"
 #define JSBridge_JSEvent_undofobyNative @"undoforbyNative"
 #define JSBridge_JSEvent_PurchasedCourse @"purchasedCourse"
+#define JSBridge_JSEvent_HideMoreButton @"hideMoreButton"
+#define JSBridge_JSEvent_ShouldBounces @"shouldBounces"
+
 
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"
