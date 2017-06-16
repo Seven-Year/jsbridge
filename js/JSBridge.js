@@ -2362,4 +2362,10 @@ window.tinfiniteBridge = {
   purchasedCourse: function (params) {
     send('purchasedCourse', params)
   },
+  hideMoreButton: function (params) {
+    send('hideMoreButton', params)
+  },
+  shouldBounces: function (params) {
+    send('shouldBounces', params)
+  },
 }
