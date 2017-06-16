@@ -87,7 +87,7 @@
 #define JSBridge_JSEvent_ShareToWX @"shareToWX"
 #define JSBridge_JSEvent_CheckReceipt @"orderReceiptCheck"
 #define JSBridge_JSEvent_undofobyNative @"undoforbyNative"
-
+#define JSBridge_JSEvent_PurchasedCourse @"purchasedCourse"
 
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"
