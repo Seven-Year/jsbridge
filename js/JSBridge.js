@@ -2359,4 +2359,7 @@ window.tinfiniteBridge = {
   undoforbyNative: function (params) {
     send('undoforbyNative', params)
   },
+  purchasedCourse: function (params) {
+    send('purchasedCourse', params)
+  },
 }
