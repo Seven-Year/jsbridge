@@ -2368,4 +2368,7 @@ window.tinfiniteBridge = {
   shouldBounces: function (params) {
     send('shouldBounces', params)
   },
+  purchasedVIP: function (params) {
+    send('purchasedVIP', params)
+  },
 }
