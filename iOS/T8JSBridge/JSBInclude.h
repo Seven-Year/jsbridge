@@ -86,20 +86,16 @@
 #define JSBridge_JSEvent_LoadCompleted @"loadCompleted"
 #define JSBridge_JSEvent_ShareToWX @"shareToWX"
 #define JSBridge_JSEvent_CheckReceipt @"orderReceiptCheck"
-#define JSBridge_JSEvent_undofobyNative @"undoforbyNative"
 #define JSBridge_JSEvent_PurchasedCourse @"purchasedCourse"
 #define JSBridge_JSEvent_HideMoreButton @"hideMoreButton"
 #define JSBridge_JSEvent_ShouldBounces @"shouldBounces"
+#define JSBridge_JSEvent_PurchasedVIP @"purchasedVIP"
 
 
 //send
 #define JSBridge_NativeCall_GetPreviewImage @"getSharePreviewImage"
-#define JSBridge_NativeCall_SendMsgListener @"sendMsgListener"
-#define JSBridge_NativeCall_ReplyPostListener @"replyPostListener"
-#define JSBridge_NativeCall_ReplyCommentListener @"replyCommentListener"
 #define JSBridge_NativeCall_P10000Listener @"payforStatusListener"
 #define JSBridge_NativeCall_EnterChannelCallBack @"enterChannelCallBack"
-#define JSBridge_JSEvent_undoforStatusListener @"undoforStatusListener"
 
 
 typedef void (^JSBResponseCallback)(id responseData);
